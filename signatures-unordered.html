@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>signatures-unordered: PACT problem type</title>
+<style>
+:root { color-scheme: light dark; --fg: #1a1a1a; --muted: #595959; --bg: #ffffff; --rule: #d9d9d9;
+  --code: #f3f3f3; --link: #0b57a4; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg: #e9e9e9; --muted: #a8a8a8; --bg: #121212; --rule: #333333; --code: #1e1e1e; --link: #86bdf6; }
+}
+body { margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1rem 4rem; }
+h1 { font-size: 1.6rem; line-height: 1.25; margin: 0.5rem 0 0.75rem; overflow-wrap: anywhere; }
+h2 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+a { color: var(--link); }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
+code { background: var(--code); padding: 0.1em 0.3em; border-radius: 3px; overflow-wrap: anywhere; }
+pre { background: var(--code); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; }
+pre code { background: none; padding: 0; }
+dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1.25rem; margin: 1rem 0; }
+dt { color: var(--muted); }
+dd { margin: 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; }
+.wrap { overflow-x: auto; }
+td:first-child code { white-space: nowrap; overflow-wrap: normal; }
+.crumb { font-size: 0.95rem; margin: 0; }
+.note, footer { color: var(--muted); font-size: 0.95rem; }
+footer { margin-top: 3rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+</style>
+</head>
+<body>
+<main>
+<p class="crumb"><a href="./">PACT problem types, revision -01</a></p>
+<h1>signatures-unordered</h1>
+<p><code>https://pact-spec.github.io/problem/signatures-unordered</code></p>
+<dl>
+<dt>HTTP status</dt><dd>422</dd>
+<dt>Defined by</dt><dd>The reference implementation. Revision -01 does not list it.</dd>
+<dt>Section named</dt><dd><a href="https://www.ietf.org/archive/id/draft-laxsharma-pact-01.html#section-13.1">Section 13.1</a> of revision -01</dd>
+</dl>
+<h2>When it is returned</h2>
+<p>The contract's <code>signatures</code> array is not sorted by normalized key identifier.</p>
+<p>This rule is the implementation's own. Revision -01 does not order the array, so one agreement signed in two orders would have two digests.</p>
+<h2>Recorded examples</h2>
+<ul>
+<li>Test vector <a href="https://github.com/pact-spec/spec/blob/134d2b859eca7722bb96673d068697ed1d57bbca/vectors/reject/01-signatures-unsorted.json">reject/01-signatures-unsorted</a>, status 422: &ldquo;signatures are not sorted by normalized kid&rdquo;</li>
+</ul>
+<footer>
+<p>These identifiers belong to revision -01 of <a href="https://www.ietf.org/archive/id/draft-laxsharma-pact-01.html">draft-laxsharma-pact</a>, an individual Internet-Draft that later revisions have superseded. Later revisions do not use this prefix.</p>
+<p>The implementation described is the reference implementation at tag v0.1.2 of <a href="https://github.com/pact-spec/spec/tree/134d2b859eca7722bb96673d068697ed1d57bbca">pact-spec/spec</a>.</p>
+</footer>
+</main>
+</body>
+</html>
